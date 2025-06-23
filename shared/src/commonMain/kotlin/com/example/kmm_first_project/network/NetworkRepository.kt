@@ -4,9 +4,7 @@ import io.ktor.client.HttpClient
 import io.ktor.client.request.get
 import io.ktor.client.statement.bodyAsText
 
-class NetworkRepository() {
-
-    private val httpClient = HttpClient()
+class NetworkRepository(private val httpClient: HttpClient) {
 
     suspend fun getHelloList(): String{
         val response = httpClient.get(HELLO_LIST)

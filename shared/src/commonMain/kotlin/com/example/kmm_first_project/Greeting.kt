@@ -9,7 +9,7 @@ import kotlinx.datetime.todayIn
 
 class Greeting {
     private val platform: Platform = getPlatform()
-    private val networkRepository = NetworkRepository()
+    private val networkRepository = NetworkRepository(getHttpClient())
 
     suspend fun getHelloList(): String = networkRepository.getHelloList()
 

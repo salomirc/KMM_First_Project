@@ -2,7 +2,6 @@ package com.example.kmm_first_project.android
 
 import android.content.res.Configuration
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
@@ -37,11 +36,9 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun ScreenView(
-    helloListInitialValue: String = ""
-) {
+fun ScreenView() {
     val greeting = remember { Greeting() }
-    var helloList by remember { mutableStateOf(helloListInitialValue) }
+    var helloList by remember { mutableStateOf("Loading...") }
 
     LaunchedEffect(Unit) {
         runCatching {
@@ -104,6 +101,6 @@ fun MoviesView(movies: String) {
 @Composable
 fun DefaultPreview() {
     MyApplicationTheme {
-        ScreenView("One, Two, Three")
+        ScreenView()
     }
 }
